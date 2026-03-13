@@ -127,16 +127,18 @@
 
   /* ── SECTION TITLES ── */
   .section-title {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
     color: var(--purple);
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    margin-top: 24px;
   }
+  .section-title:first-child { margin-top: 0; }
   .section-sub {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 400;
     color: var(--brown-mid);
-    margin-bottom: 22px;
+    margin-bottom: 16px;
     opacity: 0.7;
   }
 
@@ -227,23 +229,27 @@
   /* ── FACTORY COMPARISON CARDS ── */
   .compare-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
     margin-bottom: 28px;
+    align-items: stretch;
   }
   @media (max-width: 640px) { .compare-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) and (min-width: 641px) { .compare-grid { grid-template-columns: 1fr 1fr; } }
 
   .factory-card {
     background: var(--white);
     border-radius: 14px;
-    padding: 22px 20px;
+    padding: 18px 16px;
     box-shadow: 0 2px 12px rgba(43,18,6,0.07);
     border-top: 4px solid var(--c);
+    display: flex;
+    flex-direction: column;
   }
   .factory-card h3 {
     font-size: 13px;
     font-weight: 800;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     color: var(--c);
     margin-bottom: 4px;
@@ -252,31 +258,31 @@
     font-size: 11px;
     font-weight: 400;
     color: var(--brown-mid);
-    opacity: 0.55;
-    margin-bottom: 16px;
+    opacity: 0.6;
+    margin-bottom: 14px;
   }
 
   .metric-row { margin-bottom: 14px; }
   .metric-label {
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--brown-mid);
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 0.8px;
   }
-  .bar-wrap { display: flex; flex-direction: column; gap: 3px; }
+  .bar-wrap { display: flex; flex-direction: column; gap: 4px; }
   .bar-item { display: flex; align-items: center; gap: 8px; }
   .bar-tag {
     font-size: 10px;
     font-weight: 600;
-    width: 46px;
+    width: 40px;
     color: var(--brown-mid);
     flex-shrink: 0;
   }
   .bar-outer {
     flex: 1;
-    height: 9px;
+    height: 10px;
     background: rgba(43,18,6,0.08);
     border-radius: 99px;
     overflow: hidden;
@@ -287,7 +293,7 @@
     transition: width 1s cubic-bezier(0.16,1,0.3,1);
   }
   .bar-val {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     width: 38px;
     text-align: right;
@@ -295,33 +301,36 @@
   }
   .before .bar-inner { background: rgba(43,18,6,0.15); }
   .after  .bar-inner { background: var(--c); }
-  .before .bar-val   { color: var(--brown-mid); opacity: 0.55; }
+  .before .bar-val   { color: var(--brown-mid); opacity: 0.6; }
   .after  .bar-val   { color: var(--c); }
 
   /* ── PROFILE CARDS ── */
   .profile-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    align-items: stretch;
   }
   @media (max-width: 640px) { .profile-grid { grid-template-columns: 1fr; } }
 
   .profile-card {
     background: var(--white);
     border-radius: 14px;
-    padding: 20px 18px;
+    padding: 18px 16px;
     box-shadow: 0 2px 12px rgba(43,18,6,0.07);
+    display: flex;
+    flex-direction: column;
   }
   .profile-card .factory-name {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     color: var(--c);
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
   .profile-card .archetype {
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     color: var(--c);
     opacity: 0.65;
@@ -333,7 +342,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 5px 0;
+    padding: 6px 0;
     border-bottom: 1px dashed rgba(43,18,6,0.07);
     font-size: 11px;
     gap: 8px;
@@ -343,15 +352,14 @@
   .profile-item .pval { font-weight: 700; color: var(--brown); text-align: right; flex-shrink: 0; }
   .profile-item .pval.good { color: var(--orange); }
   .profile-note {
-    margin-top: 12px;
-    padding: 10px 12px;
-    border-radius: 8px;
+    margin-top: auto;
+    padding-top: 12px;
     font-size: 11px;
     font-weight: 400;
     line-height: 1.6;
     font-style: italic;
-    background: var(--orange-dim);
-    color: var(--brown);
+    color: var(--brown-mid);
+    border-top: 1px solid rgba(43,18,6,0.07);
   }
 
   /* ── LONGITUDINAL ── */
@@ -508,6 +516,82 @@
     line-height: 1.7;
   }
 
+  /* ── DEMOGRAPHICS ── */
+  .demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+    align-items: stretch;
+  }
+  @media (max-width: 640px) { .demo-grid { grid-template-columns: 1fr; } }
+
+  .demo-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 18px 16px;
+    box-shadow: 0 2px 12px rgba(43,18,6,0.07);
+    border-top: 4px solid var(--c, #f39200);
+    display: flex;
+    flex-direction: column;
+  }
+  .demo-card h3 {
+    font-size: 13px; font-weight: 800; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--c); margin-bottom: 4px;
+  }
+  .demo-card .trained-badge {
+    display: inline-block; background: var(--c); color: #fff;
+    font-size: 11px; font-weight: 700; padding: 3px 10px;
+    border-radius: 99px; margin-bottom: 12px; align-self: flex-start;
+  }
+  .demo-section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--brown-mid); opacity: 0.6;
+    margin: 10px 0 5px; border-top: 1px solid rgba(43,18,6,0.06); padding-top: 8px;
+  }
+  .demo-section-label:first-of-type { border-top: none; padding-top: 0; }
+  .demo-row {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 6px; font-size: 12px;
+    min-height: 22px;
+  }
+  .demo-row .d-label { width: 64px; flex-shrink: 0; color: var(--brown-mid); font-size: 11px; font-weight: 500; }
+  .demo-row .d-bar-outer {
+    flex: 1; height: 10px; background: rgba(43,18,6,0.08);
+    border-radius: 99px; overflow: hidden;
+  }
+  .demo-row .d-bar-inner { height: 100%; border-radius: 99px; background: var(--c); }
+  .demo-row .d-val { font-weight: 700; width: 32px; text-align: right; color: var(--c); flex-shrink: 0; font-size: 12px; }
+  .demo-highlights {
+    margin-top: auto; padding-top: 10px; padding: 10px 10px 0;
+    font-size: 11px; line-height: 1.6; color: var(--brown);
+  }
+  .demo-tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    background: rgba(43,18,6,0.07); color: var(--brown-mid);
+    padding: 3px 7px; border-radius: 4px; margin: 2px 2px 2px 0;
+  }
+
+  /* ── RWANDA ── */
+  .rw-overview {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 14px; margin-bottom: 20px;
+  }
+  @media (max-width: 640px) { .rw-overview { grid-template-columns: 1fr 1fr; } }
+  .rw-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 28px;
+  }
+  @media (max-width: 640px) { .rw-grid { grid-template-columns: 1fr; } }
+  .rw-card {
+    background: var(--white); border-radius: 14px;
+    padding: 20px 18px; box-shadow: 0 2px 12px rgba(43,18,6,0.07);
+    border-top: 4px solid #a3195b;
+  }
+  .rw-card h3 { font-size: 13px; font-weight: 800; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #a3195b; margin-bottom: 4px; }
+  .rw-card .factory-count { font-size: 11px; color: var(--brown-mid); opacity: 0.55; margin-bottom: 16px; }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(14px); }
@@ -528,19 +612,19 @@
 <div class="hero">
   <div class="hero-inner">
     <img src="data:image/png;base64,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" alt="Emerging Leaders" class="hero-logo">
-    <div class="hero-tag">Cup of Ambition · Kenya 2025–2026</div>
-    <h1><span style="white-space:nowrap"><span style="color:#ffffff">What</span> <span>real change</span> <span style="white-space:nowrap"><span style="color:#ffffff">looks like</span></span></span><br> across 737 smallholder farmers</h1>
-    <p>Interactive breakdown of patterns, themes, and shifts across Nduti, Gacharage & Momul tea cooperatives - Participants Trained June - August 2025.</p>
+    <div class="hero-tag">Cup of Ambition · Kenya & Rwanda · Follow-Up Report February 2026</div>
+    <h1><span style="white-space:nowrap"><span style="color:#ffffff">What</span> <span>real change</span> <span style="white-space:nowrap"><span style="color:#ffffff">looks like</span></span></span><br> across 983 smallholder farmers</h1>
+    <p>Interactive breakdown of patterns, themes, and shifts across Kenya (Nduti, Gacharage & Momul) and Rwanda (Assophette) tea cooperatives — trained June–August 2025.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="num">737</div><div class="label">Participants Trained</div></div>
+      <div class="hero-stat"><div class="num">983</div><div class="label">Total Trained (KE + RW)</div></div>
       <div class="hero-divider"></div>
-      <div class="hero-stat"><div class="num">3</div><div class="label">Cooperatives</div></div>
+      <div class="hero-stat"><div class="num">4</div><div class="label">Cooperatives · 2 Countries</div></div>
       <div class="hero-divider"></div>
       <div class="hero-stat"><div class="num">×5</div><div class="label">Ripple Effect</div></div>
       <div class="hero-divider"></div>
-      <div class="hero-stat"><div class="num">61%</div><div class="label">Female Participants</div></div>
+      <div class="hero-stat"><div class="num">62%</div><div class="label">Female Participants</div></div>
       <div class="hero-divider"></div>
-      <div class="hero-stat"><div class="num">244</div><div class="label">Endline Sample</div></div>
+      <div class="hero-stat"><div class="num">401</div><div class="label">Endline Sample (KE+RW)</div></div>
     </div>
   </div>
 </div>
@@ -556,8 +640,13 @@
 
   <!-- ═══ OVERVIEW ═══ -->
   <div class="panel active" id="panel-overview">
-    <div class="section-title">Combined Impact at a Glance</div>
-    <div class="section-sub">Baseline → Endline across all 3 cooperatives (endline sample: 244 participants)</div>
+
+    <!-- ── KENYA SECTION ── -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+      <span style="font-size:22px">🇰🇪</span>
+      <div class="section-title" style="margin-bottom:0">Kenya — Impact at a Glance</div>
+    </div>
+    <div class="section-sub">Nduti, Gacharage & Momul · Baseline → Endline (endline sample: 244 participants · 737 trained)</div>
 
     <div class="metrics-row">
       <div class="metric-card">
@@ -576,9 +665,9 @@
         <div class="desc">Budget always — a 70-point improvement in financial planning</div>
       </div>
       <div class="metric-card">
-        <div class="big">34%</div>
-        <div class="up">↑ Diversification</div>
-        <div class="desc">Single income source: fell from 44% to just 10% of participants</div>
+        <div class="big">10%</div>
+        <div class="up">↓ from 44% · Diversification</div>
+        <div class="desc">Single income source dropped by 34 points — farmers are building multiple income streams</div>
       </div>
     </div>
 
@@ -589,50 +678,261 @@
         <div class="desc">Of those with existing loans, 62% paid off. Only 3% took a new loan at endline.</div>
       </div>
       <div class="metric-card">
-        <div class="big">£5.7</div>
+        <div class="big">×2</div>
         <div class="up">↑ Monthly Savings</div>
         <div class="desc">Median savings doubled: KES 500 → KES 1,000 across all sites</div>
       </div>
       <div class="metric-card">
-        <div class="big">4%</div>
-        <div class="up">Persons with Disability</div>
-        <div class="desc">Included across all sites — programme reached marginalised groups</div>
+        <div class="big">95%</div>
+        <div class="up">Attributed to EL Training</div>
+        <div class="desc">Of Phase 2 participants who made changes, 95% credit Emerging Leaders training</div>
       </div>
       <div class="metric-card">
         <div class="big">56.6%</div>
-        <div class="up">↓ from 71%</div>
-        <div class="desc">Still cite tea as main income — diversification away from single crop dependency is underway</div>
+        <div class="up">↓ from 71% · Tea Dependency</div>
+        <div class="desc">Still cite tea as primary income — but dependency is falling as new income sources grow</div>
       </div>
     </div>
 
-    <div class="ripple-section">
+    <div class="ripple-section" style="margin-bottom:36px">
       <div class="ripple-inner">
-        <h3>The Ripple Effect: Impact beyond the individual</h3>
-        <p>For every 1 participant trained, skills and mindset changes are estimated to reach 5 people in their household and community — amplifying the programme's footprint significantly across all three cooperatives.</p>
+        <h3>Kenya Ripple Effect & Reach</h3>
+        <p>For every 1 participant trained, skills and mindset changes are estimated to reach 5 people in their household and community — amplifying the programme's footprint across all three cooperatives.</p>
         <div class="ripple-stats">
-          <div class="ripple-stat">
-            <div class="r-num">737</div>
-            <div class="r-label">Direct Participants</div>
-          </div>
-          <div class="ripple-stat">
-            <div class="r-num">~3,685</div>
-            <div class="r-label">Estimated Reach (×5)</div>
-          </div>
-          <div class="ripple-stat">
-            <div class="r-num">4</div>
-            <div class="r-label">Avg. Dependants per Participant</div>
-          </div>
+          <div class="ripple-stat"><div class="r-num">737</div><div class="r-label">Direct Participants</div></div>
+          <div class="ripple-stat"><div class="r-num">~3,685</div><div class="r-label">Estimated Reach (×5)</div></div>
+          <div class="ripple-stat"><div class="r-num">61%</div><div class="r-label">Female Participants</div></div>
+          <div class="ripple-stat"><div class="r-num">4</div><div class="r-label">Avg. Dependants</div></div>
+          <div class="ripple-stat"><div class="r-num">4%</div><div class="r-label">Persons with Disability</div></div>
         </div>
       </div>
     </div>
+
+    <!-- ── DIVIDER ── -->
+    <div style="border-top:2px dashed rgba(43,18,6,0.10);margin-bottom:32px"></div>
+
+    <!-- ── RWANDA SECTION ── -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+      <span style="font-size:22px">🇷🇼</span>
+      <div class="section-title" style="margin-bottom:0;color:#a3195b">Rwanda — Impact at a Glance</div>
+    </div>
+    <div class="section-sub">Assophette Cooperative · Baseline → Endline (endline sample: 157 participants · 246 trained)</div>
+
+    <div class="metrics-row">
+      <div class="metric-card" style="border-top-color:#a3195b">
+        <div class="big" style="color:#a3195b">×2.6</div>
+        <div class="up" style="color:#a3195b">↑ Income Growth</div>
+        <div class="desc">Monthly income: Francs 22,500 → 60,000 (£11.5 → £30.5)</div>
+      </div>
+      <div class="metric-card" style="border-top-color:#a3195b">
+        <div class="big" style="color:#a3195b">95%</div>
+        <div class="up" style="color:#a3195b">↑ from 41%</div>
+        <div class="desc">Now save consistently — a 54-point jump in saving behaviour</div>
+      </div>
+      <div class="metric-card" style="border-top-color:#a3195b">
+        <div class="big" style="color:#a3195b">76%</div>
+        <div class="up" style="color:#a3195b">↑ from 39%</div>
+        <div class="desc">Budget always — a 37-point improvement in financial planning</div>
+      </div>
+      <div class="metric-card" style="border-top-color:#a3195b">
+        <div class="big" style="color:#a3195b">21%</div>
+        <div class="up" style="color:#a3195b">↓ from 41% · Diversification</div>
+        <div class="desc">Single income source dropped by 20 points — farmers expanding beyond tea into new streams</div>
+      </div>
+    </div>
+
+    <div class="metrics-row">
+      <div class="metric-card" style="border-top-color:#a3195b">
+        <div class="big" style="color:#a3195b">58%</div>
+        <div class="up" style="color:#a3195b">Loan Payoff</div>
+        <div class="desc">Of those with existing loans, 58% fully paid off by endline</div>
+      </div>
+      <div class="metric-card" style="border-top-color:#a3195b">
+        <div class="big" style="color:#a3195b">×2</div>
+        <div class="up" style="color:#a3195b">↑ Monthly Savings</div>
+        <div class="desc">Savings doubled: Francs 4,750 → 10,000 per month</div>
+      </div>
+      <div class="metric-card" style="border-top-color:#a3195b">
+        <div class="big" style="color:#a3195b">98%</div>
+        <div class="up" style="color:#a3195b">Attributed to EL Training</div>
+        <div class="desc">Of participants who made changes, 98% credit Emerging Leaders training directly</div>
+      </div>
+      <div class="metric-card" style="border-top-color:#a3195b">
+        <div class="big" style="color:#a3195b">60%</div>
+        <div class="up" style="color:#a3195b">↓ from 94% · Tea Dependency</div>
+        <div class="desc">Still cite tea as primary income — but a 34-point fall signals real diversification underway</div>
+      </div>
+    </div>
+
+    <div class="ripple-section" style="background:linear-gradient(135deg,#6b0a35 0%,#a3195b 100%)">
+      <div class="ripple-inner">
+        <h3>Rwanda Ripple Effect & Reach</h3>
+        <p>The ×5 ripple effect holds in Rwanda too — training is spreading beyond the individual into households and communities across the Assophette cooperative area.</p>
+        <div class="ripple-stats">
+          <div class="ripple-stat"><div class="r-num">246</div><div class="r-label">Direct Participants</div></div>
+          <div class="ripple-stat"><div class="r-num">~1,230</div><div class="r-label">Estimated Reach (×5)</div></div>
+          <div class="ripple-stat"><div class="r-num">65%</div><div class="r-label">Female Participants</div></div>
+          <div class="ripple-stat"><div class="r-num">4</div><div class="r-label">Avg. Dependants</div></div>
+          <div class="ripple-stat"><div class="r-num">5%</div><div class="r-label">Persons with Disability</div></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ═══ FACTORY COMPARISON ═══ -->
   <div class="panel" id="panel-compare">
-    <div class="section-title">Baseline → Endline by Factory</div>
-    <div class="section-sub">Key indicators for each cooperative. All figures from the updated February 2026 report.</div>
 
-    <div class="compare-grid">
+    <!-- ── 1. COUNTRY DEMOGRAPHICS ── -->
+    <div class="section-title">Country Demographics</div>
+    <div class="section-sub">Participant profile at country level. Training period: June–August 2025.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+      <div class="theme-card" style="margin-bottom:0">
+        <div class="theme-icon">🇰🇪</div>
+        <div>
+          <h4>Kenya — 737 Participants</h4>
+          <p style="margin:0;font-size:12px;line-height:1.8">
+            <strong>Gender:</strong> 61% Female · 39% Male<br>
+            <strong>Age:</strong> 40% aged 36–49 · 28% aged 50+<br>
+            <strong>Education:</strong> 49% Secondary · 29% Primary · 13% University · 8% TVET<br>
+            <strong>Avg. dependants:</strong> 4 &nbsp;·&nbsp; <strong>PWD:</strong> 4%<br>
+            <strong>Time in tea farming:</strong> 39% &lt;10 yrs · 33.5% 11–20 yrs
+          </p>
+        </div>
+      </div>
+      <div class="theme-card" style="margin-bottom:0;border-left-color:#a3195b">
+        <div class="theme-icon" style="background:var(--purple-dim)">🇷🇼</div>
+        <div>
+          <h4 style="color:#a3195b">Rwanda — 246 Participants</h4>
+          <p style="margin:0;font-size:12px;line-height:1.8">
+            <strong>Gender:</strong> 65% Female · 35% Male<br>
+            <strong>Age:</strong> 37% aged 36–49 · 26% aged 50+<br>
+            <strong>Education:</strong> 52% Primary · 44% Secondary · 2% TVET · 2.5% None<br>
+            <strong>Avg. dependants:</strong> 4 &nbsp;·&nbsp; <strong>PWD:</strong> 5%<br>
+            <strong>Time in tea farming:</strong> 60% &lt;10 yrs · 23% 11–20 yrs
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2. INDIVIDUAL FACTORY DEMOGRAPHICS ── -->
+    <div class="section-title">Individual Factory Demographics</div>
+    <div class="section-sub">Participant profile per cooperative across all 4 factories</div>
+
+    <div class="demo-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:28px">
+
+      <!-- NDUTI -->
+      <div class="demo-card" style="--c: #f39200">
+        <h3>Nduti</h3>
+        <div class="trained-badge">344 Trained</div>
+        <div class="demo-section-label">Gender</div>
+        <div class="demo-row"><span class="d-label">Female</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:62%"></div></div><span class="d-val">62%</span></div>
+        <div class="demo-row"><span class="d-label">Male</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:38%"></div></div><span class="d-val">38%</span></div>
+        <div class="demo-section-label">Age</div>
+        <div class="demo-row"><span class="d-label">18–29</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:15%"></div></div><span class="d-val">15%</span></div>
+        <div class="demo-row"><span class="d-label">30–35</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:13%"></div></div><span class="d-val">13%</span></div>
+        <div class="demo-row"><span class="d-label">36–49</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:39%"></div></div><span class="d-val">39%</span></div>
+        <div class="demo-row"><span class="d-label">50+</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:33%"></div></div><span class="d-val">33%</span></div>
+        <div class="demo-section-label">Education</div>
+        <div class="demo-row" style="opacity:0.2"><span class="d-label">None</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:0%"></div></div><span class="d-val">—</span></div>
+        <div class="demo-row"><span class="d-label">Primary</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:31%"></div></div><span class="d-val">31%</span></div>
+        <div class="demo-row"><span class="d-label">Secondary</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:53%"></div></div><span class="d-val">53%</span></div>
+        <div class="demo-row"><span class="d-label">TVET</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:3%"></div></div><span class="d-val">3%</span></div>
+        <div class="demo-row"><span class="d-label">University</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:13%"></div></div><span class="d-val">13%</span></div>
+        <div class="demo-section-label">Time in Tea Farming</div>
+        <div class="demo-row"><span class="d-label">&lt;10 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:37%"></div></div><span class="d-val">37%</span></div>
+        <div class="demo-row"><span class="d-label">11–20 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:28%"></div></div><span class="d-val">28%</span></div>
+        <div class="demo-row"><span class="d-label">21–30 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:24%"></div></div><span class="d-val">24%</span></div>
+        <div class="demo-row"><span class="d-label">30+ yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:11%"></div></div><span class="d-val">11%</span></div>
+        <div class="demo-highlights"><span class="demo-tag">5% PWD</span><span class="demo-tag">Avg. 4 dependants</span><span class="demo-tag">33% aged 50+</span></div>
+      </div>
+
+      <!-- GACHARAGE -->
+      <div class="demo-card" style="--c: #a3195b">
+        <h3>Gacharage</h3>
+        <div class="trained-badge">210 Trained</div>
+        <div class="demo-section-label">Gender</div>
+        <div class="demo-row"><span class="d-label">Female</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:67%"></div></div><span class="d-val">67%</span></div>
+        <div class="demo-row"><span class="d-label">Male</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:33%"></div></div><span class="d-val">33%</span></div>
+        <div class="demo-section-label">Age</div>
+        <div class="demo-row"><span class="d-label">18–29</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:13%"></div></div><span class="d-val">13%</span></div>
+        <div class="demo-row"><span class="d-label">30–35</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:13%"></div></div><span class="d-val">13%</span></div>
+        <div class="demo-row"><span class="d-label">36–49</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:48%"></div></div><span class="d-val">48%</span></div>
+        <div class="demo-row"><span class="d-label">50+</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:26%"></div></div><span class="d-val">26%</span></div>
+        <div class="demo-section-label">Education</div>
+        <div class="demo-row"><span class="d-label">None</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:1%"></div></div><span class="d-val">1%</span></div>
+        <div class="demo-row"><span class="d-label">Primary</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:30%"></div></div><span class="d-val">30%</span></div>
+        <div class="demo-row"><span class="d-label">Secondary</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:44%"></div></div><span class="d-val">44%</span></div>
+        <div class="demo-row"><span class="d-label">TVET</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:12%"></div></div><span class="d-val">12%</span></div>
+        <div class="demo-row"><span class="d-label">University</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:13%"></div></div><span class="d-val">13%</span></div>
+        <div class="demo-section-label">Time in Tea Farming</div>
+        <div class="demo-row"><span class="d-label">&lt;10 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:33%"></div></div><span class="d-val">33%</span></div>
+        <div class="demo-row"><span class="d-label">11–20 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:42%"></div></div><span class="d-val">42%</span></div>
+        <div class="demo-row"><span class="d-label">21–30 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:21%"></div></div><span class="d-val">21%</span></div>
+        <div class="demo-row"><span class="d-label">30+ yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:4%"></div></div><span class="d-val">4%</span></div>
+        <div class="demo-highlights"><span class="demo-tag">4% PWD</span><span class="demo-tag">Avg. 4 dependants</span><span class="demo-tag">42% have 11–20 yrs</span></div>
+      </div>
+
+      <!-- MOMUL -->
+      <div class="demo-card" style="--c: #2b1206">
+        <h3>Momul</h3>
+        <div class="trained-badge">183 Trained</div>
+        <div class="demo-section-label">Gender</div>
+        <div class="demo-row"><span class="d-label">Female</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:53%"></div></div><span class="d-val">53%</span></div>
+        <div class="demo-row"><span class="d-label">Male</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:47%"></div></div><span class="d-val">47%</span></div>
+        <div class="demo-section-label">Age</div>
+        <div class="demo-row"><span class="d-label">18–29</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:28%"></div></div><span class="d-val">28%</span></div>
+        <div class="demo-row"><span class="d-label">30–35</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:18%"></div></div><span class="d-val">18%</span></div>
+        <div class="demo-row"><span class="d-label">36–49</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:33%"></div></div><span class="d-val">33%</span></div>
+        <div class="demo-row"><span class="d-label">50+</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:21%"></div></div><span class="d-val">21%</span></div>
+        <div class="demo-section-label">Education</div>
+        <div class="demo-row" style="opacity:0.2"><span class="d-label">None</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:0%"></div></div><span class="d-val">—</span></div>
+        <div class="demo-row"><span class="d-label">Primary</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:26%"></div></div><span class="d-val">26%</span></div>
+        <div class="demo-row"><span class="d-label">Secondary</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:48%"></div></div><span class="d-val">48%</span></div>
+        <div class="demo-row"><span class="d-label">TVET</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:11%"></div></div><span class="d-val">11%</span></div>
+        <div class="demo-row"><span class="d-label">University</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:15%"></div></div><span class="d-val">15%</span></div>
+        <div class="demo-section-label">Time in Tea Farming</div>
+        <div class="demo-row"><span class="d-label">&lt;10 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:49%"></div></div><span class="d-val">49%</span></div>
+        <div class="demo-row"><span class="d-label">11–20 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:35%"></div></div><span class="d-val">35%</span></div>
+        <div class="demo-row"><span class="d-label">21–30 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:12%"></div></div><span class="d-val">12%</span></div>
+        <div class="demo-row"><span class="d-label">30+ yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:4%"></div></div><span class="d-val">4%</span></div>
+        <div class="demo-highlights"><span class="demo-tag">3% PWD</span><span class="demo-tag">Avg. 4 dependants</span><span class="demo-tag">46% aged under 36</span></div>
+      </div>
+
+      <!-- ASSOPHETTE -->
+      <div class="demo-card" style="--c: #a3195b">
+        <h3>Assophette 🇷🇼</h3>
+        <div class="trained-badge">246 Trained</div>
+        <div class="demo-section-label">Gender</div>
+        <div class="demo-row"><span class="d-label">Female</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:65%"></div></div><span class="d-val">65%</span></div>
+        <div class="demo-row"><span class="d-label">Male</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:35%"></div></div><span class="d-val">35%</span></div>
+        <div class="demo-section-label">Age</div>
+        <div class="demo-row"><span class="d-label">18–29</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:17%"></div></div><span class="d-val">17%</span></div>
+        <div class="demo-row"><span class="d-label">30–35</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:20%"></div></div><span class="d-val">20%</span></div>
+        <div class="demo-row"><span class="d-label">36–49</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:37%"></div></div><span class="d-val">37%</span></div>
+        <div class="demo-row"><span class="d-label">50+</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:26%"></div></div><span class="d-val">26%</span></div>
+        <div class="demo-section-label">Education</div>
+        <div class="demo-row"><span class="d-label">None</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:2.5%"></div></div><span class="d-val">2.5%</span></div>
+        <div class="demo-row"><span class="d-label">Primary</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:52%"></div></div><span class="d-val">52%</span></div>
+        <div class="demo-row"><span class="d-label">Secondary</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:44%"></div></div><span class="d-val">44%</span></div>
+        <div class="demo-row"><span class="d-label">TVET</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:2%"></div></div><span class="d-val">2%</span></div>
+        <div class="demo-row" style="opacity:0.2"><span class="d-label">University</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:0%"></div></div><span class="d-val">—</span></div>
+        <div class="demo-section-label">Time in Tea Farming</div>
+        <div class="demo-row"><span class="d-label">&lt;10 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:60%"></div></div><span class="d-val">60%</span></div>
+        <div class="demo-row"><span class="d-label">11–20 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:23%"></div></div><span class="d-val">23%</span></div>
+        <div class="demo-row"><span class="d-label">21–30 yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:12%"></div></div><span class="d-val">12%</span></div>
+        <div class="demo-row"><span class="d-label">30+ yrs</span><div class="d-bar-outer"><div class="d-bar-inner" style="width:5%"></div></div><span class="d-val">5%</span></div>
+        <div class="demo-highlights"><span class="demo-tag">5% PWD</span><span class="demo-tag">Avg. 4 dependants</span><span class="demo-tag">60% &lt;10 yrs in tea</span></div>
+      </div>
+
+    </div><!-- end factory demo grid -->
+
+    <!-- ── 3. BASELINE → ENDLINE BY FACTORY ── -->
+    <div class="section-title">Baseline → Endline by Factory</div>
+    <div class="section-sub">All 4 cooperatives compared side by side — Kenya (Nduti, Gacharage, Momul) & Rwanda (Assophette). February 2026 report.</div>
+
+    <div class="compare-grid" style="grid-template-columns:repeat(4,1fr)">
 
       <!-- NDUTI -->
       <div class="factory-card" style="--c: #f39200">
@@ -671,6 +971,19 @@
           <div class="bar-wrap">
             <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:44%"></div></div><span class="bar-val">44%</span></div>
             <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:12%"></div></div><span class="bar-val">12%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Made Farming Changes</div>
+          <div class="bar-wrap">
+            <div class="bar-item after"><span class="bar-tag">Endline</span><div class="bar-outer"><div class="bar-inner" style="width:87%"></div></div><span class="bar-val">87%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Monthly Savings</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:28%"></div></div><span class="bar-val">£2.8</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:57%"></div></div><span class="bar-val">£5.7</span></div>
           </div>
         </div>
       </div>
@@ -714,6 +1027,19 @@
             <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:5%"></div></div><span class="bar-val">5%</span></div>
           </div>
         </div>
+        <div class="metric-row">
+          <div class="metric-label">Made Farming Changes</div>
+          <div class="bar-wrap">
+            <div class="bar-item after"><span class="bar-tag">Endline</span><div class="bar-outer"><div class="bar-inner" style="width:92%"></div></div><span class="bar-val">92%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Monthly Savings</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:37%"></div></div><span class="bar-val">£3.7</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:57%"></div></div><span class="bar-val">£5.7</span></div>
+          </div>
+        </div>
       </div>
 
       <!-- MOMUL -->
@@ -755,43 +1081,124 @@
             <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:15%"></div></div><span class="bar-val">15%</span></div>
           </div>
         </div>
+        <div class="metric-row">
+          <div class="metric-label">Made Farming Changes</div>
+          <div class="bar-wrap">
+            <div class="bar-item after"><span class="bar-tag">Endline</span><div class="bar-outer"><div class="bar-inner" style="width:83%"></div></div><span class="bar-val">83%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Monthly Savings</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:28%"></div></div><span class="bar-val">£2.8</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:57%"></div></div><span class="bar-val">£5.7</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASSOPHETTE -->
+      <div class="factory-card" style="--c: #a3195b">
+        <h3>Assophette 🇷🇼</h3>
+        <div class="factory-count">246 trained · 157 endline sample</div>
+        <div class="metric-row">
+          <div class="metric-label">Save Always</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:41%"></div></div><span class="bar-val">41%</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:95%"></div></div><span class="bar-val">95%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Budget Always</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:39%"></div></div><span class="bar-val">39%</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:76%"></div></div><span class="bar-val">76%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Tea as Primary Income</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:94%"></div></div><span class="bar-val">94%</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:60%"></div></div><span class="bar-val">60%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Monthly Income</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:11%"></div></div><span class="bar-val">£11.5</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:30%"></div></div><span class="bar-val">£30.5</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Single Income Source</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:41%"></div></div><span class="bar-val">41%</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:21%"></div></div><span class="bar-val">21%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Made Farming Changes</div>
+          <div class="bar-wrap">
+            <div class="bar-item after"><span class="bar-tag">Endline</span><div class="bar-outer"><div class="bar-inner" style="width:97%"></div></div><span class="bar-val">97%</span></div>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label">Monthly Savings</div>
+          <div class="bar-wrap">
+            <div class="bar-item before"><span class="bar-tag">Before</span><div class="bar-outer"><div class="bar-inner" style="width:24%"></div></div><span class="bar-val">£2.4</span></div>
+            <div class="bar-item after"><span class="bar-tag">After</span><div class="bar-outer"><div class="bar-inner" style="width:50%"></div></div><span class="bar-val">£5</span></div>
+          </div>
+        </div>
       </div>
 
     </div><!-- end compare-grid -->
 
-    <div class="section-title" style="margin-top:8px">Factory Archetypes</div>
-    <div class="section-sub">Each cooperative shows a distinct change signature</div>
+    <div class="section-title" style="margin-top:8px">Cooperative Archetypes</div>
+    <div class="section-sub">Each cooperative shows a distinct change signature across Kenya and Rwanda</div>
 
-    <div class="profile-grid">
+    <div class="profile-grid" style="grid-template-columns:repeat(4,1fr)">
       <div class="profile-card" style="--c: #f39200">
         <div class="factory-name">Nduti</div>
         <div class="archetype">The Commercialiser</div>
-        <div class="profile-item"><span class="pkey">Income diversification gain</span><span class="pval good">+32%</span></div>
-        <div class="profile-item"><span class="pkey">Tea still primary?</span><span class="pval">35% — lowest of all 3</span></div>
-        <div class="profile-item"><span class="pkey">Loan payoff rate</span><span class="pval">61%</span></div>
-        <div class="profile-item"><span class="pkey">Income multiplier</span><span class="pval good">×3 (KES 3,750 → 12,250)</span></div>
-        <div class="profile-item"><span class="pkey">Key behaviours</span><span class="pval good">Market access, tools investment</span></div>
-        <div class="profile-note">Nduti farmers are moving beyond tea fastest — diversification is becoming the core, not a supplement.</div>
+        <div class="profile-item"><span class="pkey">Diversification gain</span><span class="pval good">+32%</span></div>
+        <div class="profile-item"><span class="pkey">Tea still primary</span><span class="pval">35% ↓ lowest</span></div>
+        <div class="profile-item"><span class="pkey">Income multiplier</span><span class="pval good">×3</span></div>
+        <div class="profile-item"><span class="pkey">Income change</span><span class="pval">£21 → £70</span></div>
+        <div class="profile-item"><span class="pkey">Loan payoff</span><span class="pval">61%</span></div>
+        <div class="profile-item"><span class="pkey">Standout</span><span class="pval good">Market access</span></div>
+        <div class="profile-note">Moving beyond tea fastest — diversification is becoming the core, not a supplement.</div>
       </div>
       <div class="profile-card" style="--c: #a3195b">
         <div class="factory-name">Gacharage</div>
         <div class="archetype">The Entrepreneur</div>
-        <div class="profile-item"><span class="pkey">Income diversification gain</span><span class="pval good">+37% — highest!</span></div>
-        <div class="profile-item"><span class="pkey">Tea still primary?</span><span class="pval">76.6% — tea-anchored</span></div>
-        <div class="profile-item"><span class="pkey">Loan payoff rate</span><span class="pval">51%</span></div>
-        <div class="profile-item"><span class="pkey">Income multiplier</span><span class="pval good">×4 (KES 4,750 → 18,000)</span></div>
-        <div class="profile-item"><span class="pkey">Key behaviours</span><span class="pval good">Salons, cereal shops, hotels</span></div>
-        <div class="profile-note">Widest venture portfolio. Budget adoption at 99% — near-perfect financial discipline. Tea still anchors income but enterprise is growing alongside.</div>
+        <div class="profile-item"><span class="pkey">Diversification gain</span><span class="pval good">+37% ↑ highest</span></div>
+        <div class="profile-item"><span class="pkey">Tea still primary</span><span class="pval">76.6%</span></div>
+        <div class="profile-item"><span class="pkey">Income multiplier</span><span class="pval good">×4</span></div>
+        <div class="profile-item"><span class="pkey">Income change</span><span class="pval">£27 → £102</span></div>
+        <div class="profile-item"><span class="pkey">Loan payoff</span><span class="pval">51%</span></div>
+        <div class="profile-item"><span class="pkey">Standout</span><span class="pval good">Salons, shops, hotels</span></div>
+        <div class="profile-note">Widest venture portfolio. Budget adoption at 99% — near-perfect discipline.</div>
       </div>
       <div class="profile-card" style="--c: #2b1206">
         <div class="factory-name">Momul</div>
         <div class="archetype">The Mindset Shifter</div>
-        <div class="profile-item"><span class="pkey">Income diversification gain</span><span class="pval good">+31%</span></div>
-        <div class="profile-item"><span class="pkey">Tea still primary?</span><span class="pval">64% — agriculture-led</span></div>
-        <div class="profile-item"><span class="pkey">Loan payoff rate</span><span class="pval">76% — highest!</span></div>
-        <div class="profile-item"><span class="pkey">Income multiplier</span><span class="pval good">×3 (KES 4,000 → 13,250)</span></div>
-        <div class="profile-item"><span class="pkey">"No change" rate</span><span class="pval">17% — needs attention</span></div>
-        <div class="profile-note">Deepest internal shift: from "stuck" to proactive. Diversification is within farming rather than outside it — but the foundation for more is visible.</div>
+        <div class="profile-item"><span class="pkey">Diversification gain</span><span class="pval good">+31%</span></div>
+        <div class="profile-item"><span class="pkey">Tea still primary</span><span class="pval">64%</span></div>
+        <div class="profile-item"><span class="pkey">Income multiplier</span><span class="pval good">×3</span></div>
+        <div class="profile-item"><span class="pkey">Income change</span><span class="pval">£23 → £75</span></div>
+        <div class="profile-item"><span class="pkey">Loan payoff</span><span class="pval good">76% ↑ highest KE</span></div>
+        <div class="profile-item"><span class="pkey">Standout</span><span class="pval">17% no-change</span></div>
+        <div class="profile-note">Deepest internal shift: from "stuck" to proactive. Foundation for further diversification visible.</div>
+      </div>
+      <div class="profile-card" style="--c: #a3195b">
+        <div class="factory-name">Assophette</div>
+        <div class="archetype">The Land Expander 🇷🇼</div>
+        <div class="profile-item"><span class="pkey">Diversification gain</span><span class="pval good">+34%</span></div>
+        <div class="profile-item"><span class="pkey">Tea still primary</span><span class="pval">60% ↓</span></div>
+        <div class="profile-item"><span class="pkey">Income multiplier</span><span class="pval good">×2.6</span></div>
+        <div class="profile-item"><span class="pkey">Income change</span><span class="pval">£11.5 → £30.5</span></div>
+        <div class="profile-item"><span class="pkey">Loan payoff</span><span class="pval">58%</span></div>
+        <div class="profile-item"><span class="pkey">Standout</span><span class="pval good">Land expansion 36%</span></div>
+        <div class="profile-note">Land expansion leads over crop diversification. Family relationships uniquely cited as an outcome.</div>
       </div>
     </div><!-- end profile-grid -->
 
@@ -799,8 +1206,8 @@
 
   <!-- ═══ LONGITUDINAL ═══ -->
   <div class="panel" id="panel-longitudinal">
-    <div class="section-title">Longitudinal Follow-Up: Nduti &amp; Momul</div>
-    <div class="section-sub">Phase 1 cohorts tracked from Baseline → Follow-Up → Endline (2024/2025). Shows whether gains hold over time.</div>
+    <div class="section-title">Longitudinal Follow-Up: Nduti 1 &amp; Momul 1</div>
+    <div class="section-sub">Phase 1 cohorts only — tracked across 3 time points: Baseline → Follow-Up → Endline. These are the groups with the longest tracking history, showing whether gains hold and compound over time.</div>
 
     <div class="long-grid">
 
@@ -869,6 +1276,8 @@
     </div><!-- end theme-card -->
 
   </div><!-- end panel-longitudinal -->
+
+
 
 </div><!-- end main -->
 
