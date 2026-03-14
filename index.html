@@ -38,6 +38,9 @@
     position: relative;
     overflow: hidden;
   }
+  @media (max-width: 640px) {
+    .hero { padding: 28px 18px 30px; }
+  }
   .hero::before {
     content: '';
     position: absolute;
@@ -121,9 +124,19 @@
     align-self: stretch;
     min-height: 40px;
   }
+  @media (max-width: 640px) {
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 16px;
+    }
+    .hero-divider { display: none; }
+    .hero-stat .num { font-size: 28px; }
+  }
 
   /* ── MAIN ── */
   .main { max-width: 960px; margin: 0 auto; padding: 36px 24px 60px; }
+  @media (max-width: 640px) { .main { padding: 24px 14px 60px; } }
 
   /* ── SECTION TITLES ── */
   .section-title {
@@ -171,6 +184,19 @@
     box-shadow: 0 1px 6px rgba(0,0,0,0.10);
     font-weight: 700;
     border-bottom: 2px solid var(--orange);
+  }
+  @media (max-width: 640px) {
+    .tabs {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .tab {
+      text-align: center;
+      padding: 9px 8px;
+      font-size: 11px;
+    }
   }
 
   /* ── PANELS ── */
@@ -311,7 +337,8 @@
     gap: 14px;
     align-items: stretch;
   }
-  @media (max-width: 640px) { .profile-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .profile-grid { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 900px) and (min-width: 641px) { .profile-grid { grid-template-columns: 1fr 1fr !important; } }
 
   .profile-card {
     background: var(--white);
@@ -524,7 +551,7 @@
     margin-bottom: 28px;
     align-items: stretch;
   }
-  @media (max-width: 640px) { .demo-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .demo-grid { grid-template-columns: 1fr 1fr; } }
 
   .demo-card {
     background: var(--white);
