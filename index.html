@@ -384,6 +384,17 @@
   .profile-item .pkey { color: var(--brown-mid); flex: 1; font-weight: 400; }
   .profile-item .pval { font-weight: 700; color: var(--brown); text-align: right; flex-shrink: 0; }
   .profile-item .pval.good { color: var(--orange); }
+  @media (max-width: 640px) {
+    .profile-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+    .profile-item .pval {
+      text-align: left;
+      font-size: 12px;
+    }
+  }
   .profile-note {
     margin-top: auto;
     padding-top: 12px;
@@ -1252,7 +1263,7 @@
   <!-- ═══ LONGITUDINAL ═══ -->
   <div class="panel" id="panel-longitudinal">
     <div class="section-title">Longitudinal Follow-Up: Nduti 1 &amp; Momul 1</div>
-    <div class="section-sub">Phase 1 cohorts only — tracked across 3 time points: Baseline → Follow-Up → Endline. These are the groups with the longest tracking history, showing whether gains hold and compound over time.</div>
+    <div class="section-sub">These groups were trained in 2024 and early 2025 — tracked across 3 time points: Baseline → Follow-Up → Endline. These are the groups with the longest tracking history, showing whether gains hold and compound over time.</div>
 
     <div class="long-grid">
 
