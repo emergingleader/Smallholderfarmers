@@ -272,6 +272,9 @@
     display: flex;
     flex-direction: column;
   }
+  @media (max-width: 640px) {
+    .factory-card { padding: 14px 12px; }
+  }
   .factory-card h3 {
     font-size: 13px;
     font-weight: 800;
@@ -347,6 +350,9 @@
     box-shadow: 0 2px 12px rgba(43,18,6,0.07);
     display: flex;
     flex-direction: column;
+  }
+  @media (max-width: 640px) {
+    .profile-card { padding: 14px 12px; }
   }
   .profile-card .factory-name {
     font-size: 18px;
@@ -543,14 +549,24 @@
     line-height: 1.7;
   }
 
+  /* ── COUNTRY DEMOGRAPHICS GRID ── */
+  .country-demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 640px) { .country-demo-grid { grid-template-columns: 1fr; } }
+
   /* ── DEMOGRAPHICS ── */
   .demo-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     margin-bottom: 28px;
     align-items: stretch;
   }
+  @media (max-width: 900px) and (min-width: 641px) { .demo-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 640px) { .demo-grid { grid-template-columns: 1fr 1fr; } }
 
   .demo-card {
@@ -562,6 +578,7 @@
     display: flex;
     flex-direction: column;
   }
+  @media (max-width: 640px) { .demo-card { padding: 14px 12px; } }
   .demo-card h3 {
     font-size: 13px; font-weight: 800; letter-spacing: 1.2px;
     text-transform: uppercase; color: var(--c); margin-bottom: 4px;
@@ -583,6 +600,7 @@
     min-height: 22px;
   }
   .demo-row .d-label { width: 64px; flex-shrink: 0; color: var(--brown-mid); font-size: 11px; font-weight: 500; }
+  @media (max-width: 640px) { .demo-row .d-label { width: 52px; font-size: 10px; } }
   .demo-row .d-bar-outer {
     flex: 1; height: 10px; background: rgba(43,18,6,0.08);
     border-radius: 99px; overflow: hidden;
@@ -814,7 +832,7 @@
     <div class="section-title">Country Demographics</div>
     <div class="section-sub">Participant profile at country level. Training period: June–August 2025.</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+    <div class="country-demo-grid">
       <div class="theme-card" style="margin-bottom:0">
         <div class="theme-icon">🇰🇪</div>
         <div>
@@ -847,7 +865,7 @@
     <div class="section-title">Individual Factory Demographics</div>
     <div class="section-sub">Participant profile per cooperative across all 4 factories</div>
 
-    <div class="demo-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:28px">
+    <div class="demo-grid" style="margin-bottom:28px">
 
       <!-- NDUTI -->
       <div class="demo-card" style="--c: #f39200">
@@ -959,7 +977,7 @@
     <div class="section-title">Baseline → Endline by Factory</div>
     <div class="section-sub">All 4 cooperatives compared side by side — Kenya (Nduti, Gacharage, Momul) & Rwanda (Assophette). February 2026 report.</div>
 
-    <div class="compare-grid" style="grid-template-columns:repeat(4,1fr)">
+    <div class="compare-grid">
 
       <!-- NDUTI -->
       <div class="factory-card" style="--c: #f39200">
@@ -1182,7 +1200,7 @@
     <div class="section-title" style="margin-top:8px">Cooperative Archetypes</div>
     <div class="section-sub">Each cooperative shows a distinct change signature across Kenya and Rwanda</div>
 
-    <div class="profile-grid" style="grid-template-columns:repeat(4,1fr)">
+    <div class="profile-grid">
       <div class="profile-card" style="--c: #f39200">
         <div class="factory-name">Nduti</div>
         <div class="archetype">The Commercialiser</div>
